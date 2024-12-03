@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Diagnosis Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        .skin{
+            margin-left: 800px;
+            font-size: 22px;
+
+        }
+      
+        /* Navigation Bar Styling */
+        .navbar {
+            height: 7vh;
+            background-color: #d2a679;
+            padding:  10px;
+            display: flex;; /* Align items to the right */
+            justify-content: flex-start;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            font-family: 'Garamond', serif;
+            letter-spacing: -0.5px;
+            font-weight: bold;
+            font-size: 2.5rem;
+            margin-bottom: 20px
+            
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            color: black;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .navbar ul li a:hover {
+            color: whitesmoke;
+        }
+
+        /* Add a horizontal line under the navbar */
+        .navbar-line {
+            width: 100%;
+            height: 2px;
+            background-color: #ccc;
+            margin-top: 50px; /* Adjust based on navbar height */
+        }
+
+        /* Section 1 Styling */
+        .section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+            background: white;
+            color: #333;
+            border-bottom: 2px solid #f0f0f0;
+            margin-top: 70px; /* Adjust for fixed navbar */
+        }
+
+        /* Left Section Styling */
+        .left {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .grid-background {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(0deg, transparent 99%, #ddd 100%),
+            linear-gradient(90deg, transparent 99%, #ddd 100%);
+            background-size: 30px 30px;
+            position: absolute;
+        }
+
+        .image-container {
+            width: 280px;
+            height: 280px;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 5px solid #ccc;
+            border-radius: 50% 50% 0 0;
+            /* Dome shape */
+            overflow: hidden;
+        }
+
+        /* Right Section Styling */
+        .right {
+            flex: 2;
+            padding-left: 50px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: black;
+            line-height: 1.2;
+            font-family: 'Garamond', serif;
+            letter-spacing: -0.5px;
+            word-wrap: break-word;
+        }
+
+        .right p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            color: black;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: black;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+            color: #f7b731;
+        }
+
+        /* Section 2 Styling */
+        .section-2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+            background-color: #292226;
+            color: white;
+        }
+
+        .section-2 .left-section {
+            flex: 2;
+            color: white; /* Make text white */
+        }
+
+        .section-2 .left-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-family: 'Garamond', serif;
+        }
+
+        .section-2 .left-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .section-2 .right-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .section-2 .right-section img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border: 5px solid #ccc;
+            border-radius: 50% 50% 0 0;
+            /* Dome shape */
+            overflow: hidden;
+        }
+
+        /* Section 3 Styling */
+        .section-3 {
+            background-color: white;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .section-3 h1 {
+            font-family: 'Garamond', serif;
+            color: black;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+            .disease-box {
+        display: inline-block;
+        background-color: #80e5ff;
+        border-radius: 25px;
+        padding: 15px;
+        margin: 10px;
+        width: 250px;
+        height: 150px;
+        text-align: center;
+        color: rgb(40, 62, 109);
+        font-size: 1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        cursor: pointer; /* Add pointer cursor to indicate clickable */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+    }
+
+        .disease-box:hover {
+            transform: translateY(-10px); /* Moves the box up by 10px on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds a stronger shadow to simulate lifting */
+        }
+
+        .disease-box h3 {
+            font-family: 'Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .disease-box p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+
+        /* Footer Styling */
+        .footer {
+            background-color: rgba(23, 4, 8, 0.8);
+            color: #de8383;
+            padding: 15px 20px;
+            /* Reduced padding for smaller footer */
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .footer h2 {
+            font-size: 1.3rem;
+            /* Reduced font size */
+            margin-bottom: 5px;
+        }
+
+        .footer p {
+            font-size: 0.8rem;
+            /* Reduced font size */
+            margin: 5px 0;
+        }
+
+        .footer .social-icons {
+            margin-top: 5px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            /* Adjust spacing between icons */
+        }
+
+        .footer .social-icons a {
+            color: #f7b731;
+            font-size: 1rem;
+            /* Reduced icon size */
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .footer .social-icons a:hover {
+            transform: scale(1.2);
+            color: #ffbf00;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Register</a></li>
+            <li><a href="/">About</a></li>
+        </ul>
+        </div>
+        <div>
+            <h2 class="skin">Skin Disease Diagnosis</h2>
+        </div>
+    </div>
+
+    
+
+    <!-- Section 1 -->
+    <div class="section">
+        <!-- Left Side: Grid Background with Image -->
+        <div class="left">
+            <div class="grid-background"></div>
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1556227703-d6f677369617?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MTUzNXwwfDF8c2VhcmNofDF8fCUyMkRlcm1hdG9sb2d5JTIyfGVufDB8fHx8MTczMjcyNDY0MHww&ixlib=rb-4.0.3&q=80&w=1080" alt="Skin Image 1" height="250">
+            </div>
+        </div>
+
+        <!-- Right Side: Info and Social Links -->
+        <div class="right">
+            <h1 style="font-size: 80px;">Skin Diagnosis Platform</h1>
+            <p>Welcome to our platform for diagnosing skin conditions. Here, you can get an instant diagnosis based on your symptoms, and explore more about various skin diseases.</p>
+            <div class="social-icons">
+                <a href="#" class="fab fa-facebook"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-youtube"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-2">
+        <!-- Left Side: Text Content -->
+        <div class="left-section">
+            <h1 style="color: white;">About Skin Diagnosis</h1>
+            <p>
+                Explore the future of dermatological care at Skin Diagnosis, where cutting-edge image processing technology redefines skin health assessment. Our platform is designed for both patients and healthcare professionals, allowing easy image uploads and insightful analysis. With a focus on precision and efficiency, we support medical experts in delivering informed diagnoses and personalized treatment plans. Join us in revolutionizing skin health, where every diagnosis is a step towards improved well-being.
+            </p>
+        </div>
+
+        <!-- Right Side: Dome-Shaped Image -->
+        <div class="right-section">
+            <img src="https://images.unsplash.com/photo-1598300188904-6287d52746ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MTUzNXwwfDF8c2VhcmNofDJ8fCUyMkRlcm1hdG9sb2d5JTIyfGVufDB8fHx8MTczMjcyNDY0MHww&ixlib=rb-4.0.3&q=80&w=1080" alt="Skin Image 2">
+        </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section-3">
+        <h1>Top 5 Common Skin Diseases and Their Causes</h1>
+
+        <div class="disease-box">
+            <h3 style="color: #0d174e;">Acne</h3>
+            <p>Cause: Excess oil production, clogged pores, bacteria.</p>
+        </div>
+
+        <div class="disease-box">
+            <h3 style="color: #0d174e;">Eczema</h3>
+            <p>Cause: Allergies, immune system dysfunction.</p>
+        </div>
+
+        <div class="disease-box">
+            <h3 style="color: #0d174e;">Psoriasis</h3>
+            <p>Cause: Immune system problem leading to skin cell turnover.</p>
+        </div>
+
+        <div class="disease-box">
+            <h3 style="color: #0d174e;">Rosacea</h3>
+            <p>Cause: Inflammation of the skin, genetic factors.</p>
+        </div>
+
+        <div class="disease-box">
+            <h3 style="color: #0d174e;">Melanoma</h3>
+            <p>Cause: Excessive UV radiation exposure, genetic factors.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <h2>Stay Connected</h2>
+        <p>Follow us on our social media for updates and more skin care tips.</p>
+        <div class="social-icons">
+            <a href="#" class="fab fa-facebook"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-youtube"></a>
+        </div>
+    </div>
+
+</body>
+
+</html>

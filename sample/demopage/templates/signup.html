@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Skin Diagnosis Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar Styling */
+        .skin{
+            margin-left: 800px;
+            font-size: 22px;
+        }
+        .navbar {
+            background-color: #d2a679;
+            height: 7vh;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            font-family: 'Garamond', serif;
+            letter-spacing: -0.5px;
+            font-weight: bold;
+            font-size: 2rem;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            color: black;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .navbar ul li a:hover {
+            color: whitesmoke;
+        }
+
+        /* Register Section Styling */
+        .register-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin-top: 70px;
+            flex-direction: row-reverse;
+        }
+
+        .register-container .image-box {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .register-container .image-box img {
+            width: auto;
+            max-width: 200%;
+            height: 450px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+        }
+
+        .register-container .register-box {
+            flex: 1;
+            max-width: 400px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+            text-align: center;
+        }
+
+        .register-box h1 {
+            font-family: 'Garamond', serif;
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .register-box form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .register-box input {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .register-box button {
+            background-color:  #f7b731;
+            color: white;
+            padding: 12px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .register-box button:hover {
+            background-color:  #e6a620;
+        }
+
+        .register-box p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .register-box a {
+            color: #f7b731;
+            text-decoration: none;
+        }
+
+        .register-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: rgba(23, 4, 8, 0.8);
+            color: #de8383;
+            padding: 20px 30px;
+            text-align: center;
+        }
+
+        .footer h2 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .footer p {
+            font-size: 0.8rem;
+            margin: 5px 0;
+        }
+
+        .footer .social-icons {
+            margin-top: 5px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .footer .social-icons a {
+            color: #f7b731;
+            font-size: 1rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .footer .social-icons a:hover {
+            transform: scale(1.2);
+            color: #ffbf00;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/login/">Login</a></li>
+            <li><a href="/signup/">Register</a></li>
+            <li><a href="/">About</a></li>
+        </ul>
+        <div>
+            <h2 class="skin">Skin Disease Diagnosis</h2>
+        </div>
+    </div>
+    
+
+    <!-- Register Section -->
+    <div class="register-container">
+        <div class="image-box">
+            <img src="https://images.unsplash.com/photo-1590393802688-ab3fd7c186f2?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Register Background Image">
+            <img src="https://images.unsplash.com/photo-1590439471364-192aa70c0b53?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHNraW4lMjBjYXJlJTIwcHJvZHVjdHN8ZW58MHx8MHx8fDA%3D" alt="Register Background Image">
+        </div>
+        <div class="register-box">
+            <h1>Register</h1>
+            <form method="post" class="form-group">
+                {% csrf_token %}
+                {% for field in form %}
+                    <p>
+                        {{ field.label_tag }}<br>
+                        {{ field }}
+                        {% for error in field.errors %}
+                            <p style="color:red;">
+                                {{ error }}
+                            </p>
+                        {% endfor %}
+                    </p>
+                {% endfor %}
+                <button type="submit" style="background-color:  #4d1919;">Register</button>
+            </form>
+            <!-- <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                {% for field in form %}
+                    {% if field.errors %}
+                        <div class="error">
+                            {% for error in field.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <button type="submit">Register</button>
+            </form>
+             -->
+            <p>Already have an account? <a href="/login/">Login here</a></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <h2>Stay Connected</h2>
+        <p>Follow us on our social media for updates and more skin care tips.</p>
+        <div class="social-icons">
+            <a href="#" class="fab fa-facebook"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-youtube"></a>
+        </div>
+    </div>
+</body>
+
+</html>

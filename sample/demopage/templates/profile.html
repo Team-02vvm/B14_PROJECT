@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Disease Diagnosis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Navigation Bar Styling */
+        .skin {
+
+            color: #000000;
+            margin-left: 800px;
+            font-size: 22px;
+
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .navbar {
+            background-color: #d2a679;
+            height: 9vh;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-start;
+            /* Align items to the right */
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            font-family: 'Garamond', serif;
+            letter-spacing: -0.5px;
+            font-weight: bold;
+            font-size: 2.5rem;
+            margin-bottom: 20px
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            color: black;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .navbar ul li a:hover {
+            color: whitesmoke;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: rgba(23, 4, 8, 0.8);
+            color: #de8383;
+            padding: 15px 20px;
+            /* Reduced padding for smaller footer */
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .footer h2 {
+            font-size: 1.3rem;
+            /* Reduced font size */
+            margin-bottom: 5px;
+        }
+
+        .footer p {
+            font-size: 0.8rem;
+            /* Reduced font size */
+            margin: 5px 0;
+        }
+
+        .footer .social-icons {
+            margin-top: 5px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            /* Adjust spacing between icons */
+        }
+
+        .footer .social-icons a {
+            color: #f7b731;
+            font-size: 1rem;
+            /* Reduced icon size */
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .footer .social-icons a:hover {
+            transform: scale(1.2);
+            color: #ffbf00;
+        }
+    </style>
+</head>
+
+<body
+    style="font-family: 'Roboto', sans-serif; margin: 0; padding: 0; background-color: #f0f4f8; display: flex; flex-direction: column;">
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Logout</a></li>
+                <li><a href="/signup/">Register</a></li>
+                <li><a href="/">About</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2 class="skin">Skin Disease Diagnosis</h2>
+        </div>
+    </div>
+
+
+
+
+    <h1 style="text-align: center;   margin-top: 85px;">Welcome to the Skin Disease Diagnosis Web App</h1>
+
+    <div
+        style="display: flex; align-items: flex-start; justify-content: space-between; margin: 65px auto; max-width: 800px;">
+        <div
+            style="flex: 2; padding: 20px; background-color: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+            <h2 style="text-align: center;">How It Works</h2>
+            <p style="text-align: center;">We're here to help you. Follow these steps to upload your image securely:</p>
+            <ol>
+                <li style="margin: 10px 0;">Ensure your image clearly shows the skin area in question.</li>
+                <li style="margin: 10px 0;">Click the "Choose File" button below to select your image.</li>
+                <li style="margin: 10px 0;">Once you've selected an image, click "Submit."</li>
+                <li style="margin: 10px 0;">Our system will analyze your image and provide feedback.</li>
+            </ol>
+            <p style="text-align: center; color:  #d2a679;">Rest assured, your privacy is important to us, and all images
+                are handled securely.</p>
+        </div>
+
+        <form action="" method="POST" enctype="multipart/form-data"
+            style="max-width: 400px; margin-left: 20px; padding: 20px; background-color: white; border-radius: 10px; box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);">
+            {% csrf_token %}
+            <h2 style="text-align: center; margin-bottom: 20px; color: #000000;">Upload Your Image</h2>
+
+            <!-- Display uploaded image -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                {% if img_url %}
+                <img src="{{ img_url }}" alt="Uploaded Image"
+                    style="max-width: 100%; height: auto; border-radius: 8px;">
+                {% else %}
+                <img src="https://img.icons8.com/?size=100&id=0GZ9d988O0R1&format=png&color=000000" alt="Upload Icon"
+                    style="width: 80px; height: 80px; margin-bottom: 10px;">
+                {% endif %}
+            </div>
+
+            <!-- Image file input -->
+            <label for="uploadImage" style="display: block; font-size: 16px; color: #333; text-align: center;">Choose
+                Image File:</label>
+            <input type="file" id="uploadImage" name="uploadImage"
+                style="display: block; margin: 10px auto; border: 1px solid #ddd; border-radius: 5px; padding: 5px; width: 100%; cursor: pointer;">
+
+            <!-- Submit button -->
+            <div style="text-align: center;">
+                <button type="submit"
+                    style="background-color: #4d1919; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; width: 100%;">Submit</button>
+            </div>
+        </form>
+    </div>
+    {% if obj1 %}
+    <div style="text-align: center; margin: auto;">
+        <h3 style="background-color: #d2a679; padding: 10px; border-radius: 32px;">Skin Disease Detected:</h3>
+        <p>{{ obj1 }}</p>
+    </div>
+    {% endif %}
+    {% if obj2 %}
+    <div style=" text-align: center; margin: auto;">
+        <h3 style="background-color: #d2a679; padding: 10px; border-radius: 32px;">Diagnosis Result:</h3>
+        <p>{{ obj2 }}</p>
+    </div>
+    {% endif %}
+
+    <!-- Footer -->
+    <div class="footer">
+        <h2>Stay Connected</h2>
+        <p>Follow us on our social media for updates and more skin care tips.</p>
+        <div class="social-icons">
+            <a href="#" class="fab fa-facebook"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-youtube"></a>
+        </div>
+    </div>
+</body>
+
+</html>

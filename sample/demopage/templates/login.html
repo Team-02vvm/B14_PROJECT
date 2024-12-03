@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Skin Diagnosis Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: url('https://images.unsplash.com/photo-1626783416763-67a92e5e7266?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+       
+
+        /* Navigation Bar Styling */
+        .skin{
+            margin-left: 800px;
+            font-size: 22px;
+        }
+        .navbar {
+            background-color: #d2a679;
+            height: 7vh;
+            padding: 10px ;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            font-family: 'Garamond', serif;
+            letter-spacing: -0.5px;
+            font-weight: bold;
+            font-size: 2rem;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            color: black;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .navbar ul li a:hover {
+            color: whitesmoke;
+        }
+
+        /* Login Form Styling */
+        .login-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 70px;
+            padding: 20px 15px; /* Adjusted for better spacing */
+        }
+
+        .login-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+            margin-left: -40px; /* Moved the box to the left */
+        }
+
+        .login-box h1 {
+            font-family: 'Garamond', serif;
+            font-size: 1.8rem; /* Slightly reduced font size */
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .login-box form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Reduced spacing */
+        }
+
+        .login-box input {
+            padding: 8px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-box button {
+            background-color: #f7b731;
+            color: white;
+            padding: 10px;
+            font-size: 1.1rem; /* Reduced font size */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-box button:hover {
+            background-color: #e6a620;
+        }
+
+        .login-box p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .login-box a {
+            color:  #d2a679;
+            text-decoration: none;
+        }
+
+        .login-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* Forgot Password and Sign Up Section */
+        .buttons {
+            margin-top: 32px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            gap: 8px;
+        }
+
+        .buttons span {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .buttons .btn {
+            padding: 8px 12px;
+            background-color: #084469;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .buttons .btn:hover {
+            background-color: #0867a7;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: rgba(23, 4, 8, 0.8);
+            color: #de8383;
+            padding: 15px 20px; /* Reduced padding for smaller footer */
+            text-align: center;
+        }
+
+        .footer h2 {
+            font-size: 1.3rem; /* Reduced font size */
+            margin-bottom: 5px;
+        }
+
+        .footer p {
+            font-size: 0.8rem; /* Reduced font size */
+            margin: 5px 0;
+        }
+
+        .footer .social-icons {
+            margin-top: 5px;
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Adjust spacing between icons */
+        }
+
+        .footer .social-icons a {
+            color: #f7b731;
+            font-size: 1rem; /* Reduced icon size */
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .footer .social-icons a:hover {
+            transform: scale(1.2);
+            color: #ffbf00;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/login/">Login</a></li>
+            <li><a href="/signup/">Register</a></li>
+            <li><a href="/">About</a></li>
+        </ul>
+        </div>
+        <div>
+            <h2 class="skin">Skin Disease Diagnosis</h2>
+        </div>
+    
+    </div>
+    
+    <!-- Login Form -->
+    <div class="login-container">
+        <div class="login-box">
+            <h1>Login</h1>
+            <form action="/login/" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" style="background-color:  #4d1919;">Login</button>
+            </form>
+            <p>Don't have an account? <a href="/signup/">Register here</a></p>
+
+
+           
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <h2>Stay Connected</h2>
+        <p>Follow us on our social media for updates and more skin care tips.</p>
+        <div class="social-icons">
+            <a href="#" class="fab fa-facebook"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-youtube"></a>
+        </div>
+    </div>
+</body>
+
+</html>
